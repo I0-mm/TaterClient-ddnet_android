@@ -67,7 +67,7 @@ jobs:
         mkdir ndk
         cd ndk
         wget -nv https://dl.google.com/android/repository/android-ndk-r26d-linux.zip
-        unzip -qq android-ndk-r26d-linux.zip
+        unzip -q android-ndk-r26d-linux.zip
         unlink android-ndk-r26d-linux.zip
 
     - name: Install Android SDK build tools
@@ -76,14 +76,13 @@ jobs:
         mkdir build-tools
         cd build-tools
         wget -nv https://dl.google.com/android/repository/build-tools_r30.0.3-linux.zip
-        unzip -qq build-tools_r30.0.3-linux.zip
+        unzip -q build-tools_r30.0.3-linux.zip
         unlink build-tools_r30.0.3-linux.zip
         mv android-11 30.0.3
 
     - name: Version of Java
       run: |
         java --version
-        sudo update-java-alternatives --list
 
     - name: Install Android command-line tools
       run: |
@@ -91,7 +90,7 @@ jobs:
         mkdir cmdline-tools
         cd cmdline-tools
         wget -nv https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
-        unzip -qq commandlinetools-linux-11076708_latest.zip
+        unzip -q commandlinetools-linux-11076708_latest.zip
         unlink commandlinetools-linux-11076708_latest.zip
         mv cmdline-tools latest
         yes | latest/bin/sdkmanager --licenses
