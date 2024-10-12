@@ -65,7 +65,7 @@ jobs:
         cd Sdk
         mkdir ndk
         cd ndk
-        wget https://dl.google.com/android/repository/android-ndk-r26d-linux.zip
+        wget -nv https://dl.google.com/android/repository/android-ndk-r26d-linux.zip
         unzip android-ndk-r26d-linux.zip
         unlink android-ndk-r26d-linux.zip
 
@@ -74,7 +74,7 @@ jobs:
         cd ~/Android/Sdk
         mkdir build-tools
         cd build-tools
-        wget https://dl.google.com/android/repository/build-tools_r30.0.3-linux.zip
+        wget -nv https://dl.google.com/android/repository/build-tools_r30.0.3-linux.zip
         unzip build-tools_r30.0.3-linux.zip
         unlink build-tools_r30.0.3-linux.zip
         mv android-11 30.0.3
@@ -84,7 +84,7 @@ jobs:
         cd ~/Android/Sdk
         mkdir cmdline-tools
         cd cmdline-tools
-        wget https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
+        wget -nv https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
         unzip commandlinetools-linux-11076708_latest.zip
         unlink commandlinetools-linux-11076708_latest.zip
         mv cmdline-tools latest
