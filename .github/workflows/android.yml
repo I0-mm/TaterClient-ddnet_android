@@ -82,6 +82,7 @@ jobs:
     - name: Version of Java
       run: |
         java --version
+        sudo update-java-alternatives --list
 
     - name: Install Android command-line tools
       run: |
