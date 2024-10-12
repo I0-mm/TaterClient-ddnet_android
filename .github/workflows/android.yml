@@ -127,32 +127,11 @@ jobs:
         unset ANDROID_NDK_ROOT
 
         # Version code and name will be determined automatically
-        scripts/android/cmake_android.sh arm64 DDNet org.ddnet.client Release build-android-release
+        scripts/android/cmake_android.sh arm64 DDNet org.ddnet.client.lsc0x Release build-android-release
 
     - name: Version
       run: echo -e "#include \"src/game/version.h\"\nGAME_RELEASE_VERSION" | cc -E -xc - | tail -1
       id: version
-
-    - name: Release
-      uses: actions/create-release@v1
-      id: create_release
-      with:
-        draft: false
-        prerelease: false
-        release_name: ${{ steps.Version.outputs.version }}
-        tag_name: ${{ github.ref }}
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-
-    - name: Upload Android artifact
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./build-android-release/DDNet.apk
-        asset_name: DDNet.apk
-        asset_content_type: application/gzip
 
     - name: Package
       run: |
