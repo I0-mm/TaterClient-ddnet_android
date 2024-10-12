@@ -116,17 +116,17 @@ jobs:
       run: |
         # keytool -genkey -v -storepass mypassword -keystore Teeworlds.jks -keyalg RSA -keysize 2048 -validity 10000 -alias Teeworlds-Key
         # It will prompt for the password, input for example "mypassword"
+        mkdir -p build-android-release
+        cp Teeworlds.jks build-android-release/
+
         export TW_KEY_NAME=Teeworlds.jks
         export TW_KEY_PW=mypassword
         export TW_KEY_ALIAS=Teeworlds-Key
-        
-        # ANDROID_HOME=/home/runner/Android/Sdk
-        #export ANDROID_SDK_ROOT=$ANDROID_HOME
-        # ANDROID_NDK_HOME=/home/runner/Android/Sdk/ndk/android-ndk-r26d
-        #export ANDROID_NDK_ROOT=$ANDROID_NDK_HOME
-        # Version code and name will be determined automatically
+
         unset ANDROID_SDK_ROOT
         unset ANDROID_NDK_ROOT
+
+        # Version code and name will be determined automatically
         scripts/android/cmake_android.sh arm64 DDNet org.ddnet.client Release build-android-release
 
     - name: Package
