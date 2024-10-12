@@ -56,7 +56,15 @@ jobs:
     - name: Install Android build deps
       run: |
         sudo apt-get install openjdk-21-jdk p7zip-full ninja-build curl 
-        sudo update-java-alternatives --set temurin-21-jdk-amd64
+        #sudo update-java-alternatives --set temurin-21-jdk-amd64
+
+    - name: Setup Java JDK
+      uses: actions/setup-java@v4.4.0
+      with:
+        java-version: 21
+        distribution: oracle
+        # The package type (jdk, jre, jdk+fx, jre+fx)
+        java-package: jdk
 
     - name: Install Android NDK
       run: |
