@@ -1847,6 +1847,7 @@ set(EXPECTED_DATA
   themes/winter.png
   themes/winter_day.map
   themes/winter_night.map
+  touch_controls.json
   wordlist.txt
 )
 
@@ -2419,6 +2420,8 @@ if(CLIENT)
     components/tater.h
     components/tooltips.cpp
     components/tooltips.h
+    components/touch_controls.cpp
+    components/touch_controls.h
     components/verify.cpp
     components/verify.h
     components/voting.cpp
